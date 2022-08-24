@@ -60,3 +60,5 @@ $route['logout'] = "AuthController/logout";
 $route['blocked'] = "AuthController/block";
 $route['admin'] = "DashboardController/admin";
 $route['user'] = "DashboardController/user";
+$route['detail/(:any)'] = "DashboardController/detail/(:any)";
+$route['delete/(:any)'] = "DashboardController/delete/(:any)";

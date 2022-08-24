@@ -1,132 +1,285 @@
-<div class="container-fluid">
-    <div class="row-fluid">
-        <!-- block -->
-        <div class="block">
-            <div class="navbar navbar-inner block-header">
-                <div class="muted pull-left">Form Example</div>
-            </div>
-            <div class="block-content collapse in">
-                <div class="span12">
-                    <form class="form-horizontal">
-                        <fieldset>
-                            <legend>Form Components</legend>
-                            <div class="control-group">
-                                <label class="control-label" for="typeahead">Text input </label>
-                                <div class="controls">
-                                    <input type="text" class="span6" id="typeahead" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
-                                    <p class="help-block">Start typing to activate auto complete!</p>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label" for="date01">Date input</label>
-                                <div class="controls">
-                                    <input type="text" class="input-xlarge datepicker" id="date01" value="02/16/12">
-                                    <p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label" for="optionsCheckbox">Checkbox</label>
-                                <div class="controls">
-                                    <label class="uniform">
-                                        <input class="uniform_on" type="checkbox" id="optionsCheckbox" value="option1">
-                                        Option one is this and that&mdash;be sure to include why it's great
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label" for="select01">Select list</label>
-                                <div class="controls">
-                                    <select id="select01" class="chzn-select">
-                                        <option>something</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label" for="multiSelect">Multicon-select</label>
-                                <div class="controls">
-                                    <select multiple="multiple" id="multiSelect" class="chzn-select span4">
-                                        <option>Alabama</option>
-                                        <option>Alaska</option>
-                                        <option>Arizona</option>
-                                        <option>Arkansas</option>
-                                        <option>California</option>
-                                        <option>Colorado</option>
-                                        <option>Connecticut</option>
-                                        <option>Delaware</option>
-                                        <option>District Of Columbia</option>
-                                        <option>Florida</option>
-                                        <option>Georgia</option>
-                                        <option>Hawaii</option>
-                                        <option>Idaho</option>
-                                        <option>Illinois</option>
-                                        <option>Indiana</option>
-                                        <option>Iowa</option>
-                                        <option>Kansas</option>
-                                        <option>Kentucky</option>
-                                        <option>Louisiana</option>
-                                        <option>Maine</option>
-                                        <option>Maryland</option>
-                                        <option>Massachusetts</option>
-                                        <option>Michigan</option>
-                                        <option>Minnesota</option>
-                                        <option>Mississippi</option>
-                                        <option>Missouri</option>
-                                        <option>Montana</option>
-                                        <option>Nebraska</option>
-                                        <option>Nevada</option>
-                                        <option>New Hampshire</option>
-                                        <option>New Jersey</option>
-                                        <option>New Mexico</option>
-                                        <option>New York</option>
-                                        <option>North Carolina</option>
-                                        <option>North Dakota</option>
-                                        <option>Ohio</option>
-                                        <option>Oklahoma</option>
-                                        <option>Oregon</option>
-                                        <option>Pennsylvania</option>
-                                        <option>Rhode Island</option>
-                                        <option>South Carolina</option>
-                                        <option>South Dakota</option>
-                                        <option>Tennessee</option>
-                                        <option>Texas</option>
-                                        <option>Utah</option>
-                                        <option>Vermont</option>
-                                        <option>Virginia</option>
-                                        <option>Washington</option>
-                                        <option>West Virginia</option>
-                                        <option>Wisconsin</option>
-                                        <option>Wyoming</option>
-                                    </select>
-                                    <p class="help-block">Start typing to activate auto complete!</p>
-                                </div>
+<div class="flash-data" data-flashdata="<?= $this->session->flashdata('sukses'); ?>"></div>
+<div class="flash-data-gagal" data-flashdata="<?= $this->session->flashdata('gagal'); ?>"></div>
+<div class="block">
+    <div class="navbar navbar-inner block-header">
+        <div class="muted pull-left">Data Pelamar</div>
+    </div>
+    <div class="block-content collapse in">
+        <div class="span12">
+            <form class="form-horizontal" method="post" action="<?= base_url('DashboardController/save'); ?>">
+                <fieldset>
+                    <legend>Form Data Pelamar</legend>
+                    <div class="control-group <?= (form_error('posisi')) ? "error" : "" ?>">
+                        <label class="control-label" for="posisi">Posisi yang dilamar</label>
+                        <div class="controls">
+                            <input class="input-xlarge focused span6" id="posisi" type="text" name="posisi" placeholder="Posisi yang dilamar" value="<?php echo set_value('posisi'); ?>">
+                            <?php echo form_error('posisi', '<span class="help-inline">', '</span>'); ?>
 
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label" for="fileInput">File input</label>
-                                <div class="controls">
-                                    <input class="input-file uniform_on" id="fileInput" type="file">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label" for="textarea2">Textarea WYSIWYG</label>
-                                <div class="controls">
-                                    <textarea class="input-xlarge textarea" placeholder="Enter text ..." style="width: 810px; height: 200px"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-actions">
-                                <button type="submit" class="btn btn-primary">Save changes</button>
-                                <button type="reset" class="btn">Cancel</button>
-                            </div>
-                        </fieldset>
-                    </form>
+                        </div>
+                    </div>
+                    <div class="control-group <?= (form_error('nama')) ? "error" : "" ?>">
+                        <label class="control-label" for="nama">Nama</label>
+                        <div class="controls">
+                            <input class="input-xlarge focused span6" id="nama" type="text" name="nama" placeholder="Nama" value="<?php echo set_value('nama'); ?>">
+                            <?php echo form_error('nama', '<span class="help-inline">', '</span>'); ?>
 
-                </div>
-            </div>
+                        </div>
+                    </div>
+                    <div class="control-group <?= (form_error('ktp')) ? "error" : "" ?>">
+                        <label class="control-label" for="ktp">No. KTP</label>
+                        <div class="controls">
+                            <input class="input-xlarge focused span6" id="ktp" type="text" name="ktp" placeholder="ktp" maxlength="16" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" value="<?php echo set_value('ktp'); ?>">
+                            <?php echo form_error('ktp', '<span class="help-inline">', '</span>'); ?>
+
+                        </div>
+                    </div>
+                    <div class="control-group <?= (form_error('tmp_lahir')) ? "error" : "" ?>">
+                        <label class="control-label" for="tmp_lahir">Tempat Lahir</label>
+                        <div class="controls">
+                            <input class="input-xlarge focused span6" id="tmp_lahir" type="text" name="tmp_lahir" placeholder="Tempat Lahir" value="<?php echo set_value('tmp_lahir'); ?>">
+                            <?php echo form_error('tmp_lahir', '<span class="help-inline">', '</span>'); ?>
+
+                        </div>
+                    </div>
+                    <div class="control-group <?= (form_error('tgl_lahir')) ? "error" : "" ?>">
+                        <label class="control-label" for="tgl_lahir">Tanggal Lahir</label>
+                        <div class="controls">
+                            <input class="input-xlarge focused span6" id="tgl_lahir" type="date" name="tgl_lahir" placeholder="Tanggal Lahir" value="<?php echo set_value('tgl_lahir'); ?>">
+                            <?php echo form_error('tgl_lahir', '<span class="help-inline">', '</span>'); ?>
+
+                        </div>
+                    </div>
+                    <div class="control-group <?= (form_error('jk')) ? "error" : "" ?>">
+                        <label class="control-label" for="jk">Jenis Kelamin</label>
+                        <div class="controls">
+                            <input type="radio" id="jk" name="jk" value="1"> Laki - Laki
+                            &nbsp;&nbsp;&nbsp;
+                            <input type="radio" id="jk" name="jk" value="2"> Perempuan
+                            <?php echo form_error('jk', '<span class="help-inline">', '</span>'); ?>
+
+                        </div>
+                    </div>
+                    <div class="control-group <?= (form_error('agama')) ? "error" : "" ?>">
+                        <label class=" control-label" for="agama">Agama</label>
+                        <div class="controls">
+                            <select id="agama" class="chzn-select" name="agama" data-placeholder="Pilih Agama">
+                                <option></option>
+                                <?php foreach ($agama as $agm) : ?>
+                                    <option value="<?= $agm['id']; ?>"><?= $agm['nama_agama']; ?></option>
+                                <?php endforeach ?>
+                            </select>
+                            <?php echo form_error('agama', '<span class="help-inline">', '</span>'); ?>
+                        </div>
+                    </div>
+                    <div class="control-group <?= (form_error('gol_darah')) ? "error" : "" ?>">
+                        <label class="control-label" for="gol_darah">Golongan Darah</label>
+                        <div class="controls">
+                            <input class="input-xlarge focused span6" id="gol_darah" type="text" name="gol_darah" placeholder="Golongan Darah" value="<?php echo set_value('gol_darah'); ?>">
+                            <?php echo form_error('gol_darah', '<span class="help-inline">', '</span>'); ?>
+
+                        </div>
+                    </div>
+                    <div class="control-group <?= (form_error('status')) ? "error" : "" ?>">
+                        <label class=" control-label" for="status">Status</label>
+                        <div class="controls">
+                            <select id="status" class="chzn-select" name="status" data-placeholder="Pilih Status">
+                                <option></option>
+                                <?php foreach ($status as $st) : ?>
+                                    <option value="<?= $st['id']; ?>"><?= $st['status']; ?></option>
+                                <?php endforeach ?>
+                            </select>
+                            <?php echo form_error('status', '<span class="help-inline">', '</span>'); ?>
+                        </div>
+                    </div>
+                    <div class="control-group <?= (form_error('alamat_ktp')) ? "error" : "" ?>">
+                        <label class=" control-label" for="alamat_ktp">Alamat KTP</label>
+                        <div class="controls">
+                            <textarea class="input-xlarge span6" placeholder="Isi Alamat KTP" rows="4" name="alamat_ktp" id="alamat_ktp"><?php echo set_value('alamat_ktp'); ?></textarea>
+                            <?php echo form_error('alamat_ktp', '<span class="help-inline">', '</span>'); ?>
+                        </div>
+                    </div>
+                    <div class="control-group <?= (form_error('alamat_tinggal')) ? "error" : "" ?>">
+                        <label class=" control-label" for="alamat_tinggal">Alamat Tempat Tinggal</label>
+                        <div class="controls">
+                            <textarea class="input-xlarge span6" placeholder="Alamat Tempat Tinggal" rows="4" name="alamat_tinggal" id="alamat_tinggal"><?php echo set_value('alamat_tinggal'); ?></textarea>
+                            <?php echo form_error('alamat_tinggal', '<span class="help-inline">', '</span>'); ?>
+                        </div>
+                    </div>
+                    <div class="control-group <?= (form_error('email')) ? "error" : "" ?>">
+                        <label class="control-label" for="email">Email</label>
+                        <div class="controls">
+                            <input class="input-xlarge focused span6" id="email" type="email" name="email" placeholder="Email" value="<?= $email; ?>">
+                            <?php echo form_error('email', '<span class="help-inline">', '</span>'); ?>
+                        </div>
+                    </div>
+                    <div class="control-group <?= (form_error('tlp')) ? "error" : "" ?>">
+                        <label class="control-label" for="tlp">Telepon</label>
+                        <div class="controls">
+                            <input class="input-xlarge focused span6" id="tlp" type="text" name="tlp" placeholder="No Telepon" maxlength="16" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                            <?php echo form_error('tlp', '<span class="help-inline">', '</span>'); ?>
+
+                        </div>
+                    </div>
+                    <div class="control-group <?= (form_error('hporg')) ? "error" : "" ?>">
+                        <label class="control-label" for="org">Orang terdekat yang bisa di Hubungi</label>
+                        <div class="controls">
+                            <input class="input-xlarge focused span6" id="hporg" type="text" name="hporg" placeholder="No Tlp" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                            <?php echo form_error('hporg', '<span class="help-inline">', '</span>'); ?>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class=" control-label" for="pendidikan">Pendidikan Terakhir</label>
+                        <div class="controls" style="padding-bottom: 10px;">
+                            <a id="btn_pendidikan" class="btn btn-success" href="javascript:void(0);">
+                                Tambah Pendidikan
+                            </a>
+                        </div>
+                        <div class="controls">
+                            <div>
+                                <table class="table table-bordered" id="table_pendidikan">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 30%;">Jenjang Pendidikan Terakhir</th>
+                                            <th style="width: 25%;">Nama Institusi Akademik</th>
+                                            <th style="width: 15%;">Jurusan</th>
+                                            <th style="width: 15%;">Tahun Lulus</th>
+                                            <th style="width: 15%;">IPK</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input class="input-xlarge focused span3" id="pend_terakhir" type="text" name="pend_terakhir[]" placeholder="Pendidikan Terakhir"></td>
+                                            <td><input class="input-xlarge focused span3" id="pend_nama" type="text" name="pend_nama[]" placeholder="Nama Institusi"></td>
+                                            <td><input class="input-xlarge focused span2" id="pend_jurusan" type="text" name="pend_jurusan[]" placeholder="Jurusan"></td>
+                                            <td><input class="input-xlarge focused span2" id="tahun_lulus" type="text" name="tahun_lulus[]" placeholder="Tahun Lulus" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"></td>
+                                            <td><input class="input-xlarge focused span1" id="pend_ipk" type="text" name="pend_ipk[]" placeholder="IPK"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class=" control-label" for="pendidikan">Riwayat Pelatihan</label>
+                        <div class="controls" style="padding-bottom: 10px;">
+                            <a id="btn_pelatihan" class="btn btn-success" href="javascript:void(0);">
+                                Tambah Pelatihan
+                            </a>
+                        </div>
+                        <div class="controls">
+                            <div>
+                                <table class="table table-bordered" id="table_pelatihan">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 30%;">Nama Khursus / Seminar</th>
+                                            <th style="width: 15%;">Tahun</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input class="input-xlarge focused span9" id="seminar" type="text" name="seminar[]" placeholder="Nama Khursus / Seminar"></td>
+                                            <td><input class="input-xlarge focused span2" id="tahun_seminar" type="text" name="tahun_seminar[]" placeholder="Tahun" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class=" control-label" for="pendidikan">Riwayat Pekerjaan</label>
+                        <div class="controls" style="padding-bottom: 10px;">
+                            <a id="btn_pekerjaan" class="btn btn-success" href="javascript:void(0);">
+                                Tambah Pekerjaan
+                            </a>
+                        </div>
+                        <div class="controls">
+                            <div>
+                                <table class="table table-bordered" id="table_pekerjaan">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 30%;">Nama Perusahaan</th>
+                                            <th style="width: 25%;">Posisi Terakhir</th>
+                                            <th style="width: 15%;">Gaji Terakhir</th>
+                                            <th style="width: 15%;">Tahun</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input class="input-xlarge focused span3" id="perusahaan" type="text" name="perusahaan[]" placeholder="Nama Khursus / Seminar"></td>
+                                            <td><input class="input-xlarge focused span3" id="posisi_terakhir" type="text" name="posisi_terakhir[]" placeholder="Sertifikat Ada/Tidak"></td>
+                                            <td><input type="number" name="gaji[]" id="gaji" placeholder="Gaji Terakhir"></td>
+                                            <td><input class="input-xlarge focused span2" id="tahun_pekerjaan" type="text" name="tahun_pekerjaan[]" placeholder="Tahun" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group <?= (form_error('skill')) ? "error" : "" ?>">
+                        <label class=" control-label" for="skill">Skill</label>
+                        <div class="controls">
+                            <textarea class="input-xlarge span6" placeholder="Skill" rows="4" name="skill" id="skill"><?php echo set_value('skill'); ?></textarea>
+                            <?php echo form_error('skill', '<span class="help-inline">', '</span>'); ?>
+                        </div>
+                    </div>
+                    <div class="control-group <?= (form_error('kantor')) ? "error" : "" ?>">
+                        <label class="control-label" for="jk">Bersedia ditempatkan diseluruh Kantor Perusahaan</label>
+                        <div class="controls">
+                            <input type="radio" id="kantor" name="kantor" value="1"> Ya
+                            &nbsp;&nbsp;&nbsp;
+                            <input type="radio" id="kantor" name="kantor" value="0"> Tidak
+                            <?php echo form_error('kantor', '<span class="help-inline">', '</span>'); ?>
+
+                        </div>
+                    </div>
+                    <div class="control-group <?= (form_error('gaji_harap')) ? "error" : "" ?>">
+                        <label class="control-label" for="gaji_harap">Gaji yang di Harapkan</label>
+                        <div class="controls">
+                            <input type="text" name="gaji_harap" id="gaji_harap" data-type="currency" placeholder="Gaji yang di harapkan">
+                            <?php echo form_error('gaji_harap', '<span class="help-inline">', '</span>'); ?>
+
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <a href="<?= base_url('admin'); ?>" class="btn">Cancel</a>
+                    </div>
+                </fieldset>
+            </form>
+
         </div>
-        <!-- /block -->
     </div>
 </div>
+
+<script type="text/javascript">
+    var no_urut = 1;
+    $("#btn_pendidikan").click(function() {
+        var html = `<tr>
+            <td><input class="input-xlarge focused span3" id="pend_terakhir" type="text" name="pend_terakhir[]" placeholder="Pendidikan Terakhir"></td>
+            <td><input class="input-xlarge focused span3" id="pend_nama" type="text" name="pend_nama[]" placeholder="Nama Institusi"></td>
+            <td><input class="input-xlarge focused span2" id="pend_jurusan" type="text" name="pend_jurusan[]" placeholder="Jurusan"></td>
+            <td><input class="input-xlarge focused span2" id="tahun_lulus" type="number" name="tahun_lulus[]" placeholder="Tahun Lulus" maxlength="4"></td>
+        <td><input class="input-xlarge focused span1" id="pend_ipk" type="text" name="pend_ipk[]" placeholder="IPK"></td>
+        </tr>`;
+        $("#table_pendidikan").append(html);
+    });
+
+    $("#btn_pelatihan").click(function() {
+        no_urut++;
+        var html = `<tr>
+                        <td><input class="input-xlarge focused span9" id="seminar" type="text" name="seminar[]" placeholder="Nama Khursus / Seminar"></td>
+                        <td><input class="input-xlarge focused span2" id="tahun_seminar" type="number" name="tahun_seminar[]" placeholder="Tahun"></td>
+                    </tr>`;
+        $("#table_pelatihan").append(html);
+    });
+
+    $("#btn_pekerjaan").click(function() {
+        var html = `<tr>
+                        <td><input class="input-xlarge focused span3" id="perusahaan" type="text" name="perusahaan[]" placeholder="Nama Khursus / Seminar"></td>
+                        <td><input class="input-xlarge focused span3" id="posisi_terakhir" type="text" name="posisi_terakhir[]" placeholder="Sertifikat Ada/Tidak"></td>
+                        <td><input type="number" name="gaji[]" id="gaji" placeholder="Gaji Terakhir"></td>
+                        <td><input class="input-xlarge focused span2" id="tahun_pekerjaan" type="number" name="tahun_pekerjaan[]" placeholder="Tahun" maxlength="4"></td>
+                    </tr>`;
+        $("#table_pekerjaan").append(html);
+    });
+</script>
