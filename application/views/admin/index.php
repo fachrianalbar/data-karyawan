@@ -42,7 +42,9 @@
                                             <td><?= $this->General_m->tanggal_indo($bio["tanggal_lahir"], true); ?></td>
                                             <td style="text-align:center;">
                                                 <a href="<?= base_url("detail"); ?>/<?= $bio['uuid']; ?>" class="btn"><i class=" icon-eye-open"></i> Detail</a>
-                                                <a href="<?= base_url("delete"); ?>/<?= $bio['uuid']; ?>" class="btn btn-danger tombol-hapus"><i class="icon-remove icon-white"></i> Hapus</a>
+                                                <?php if ($this->session->userdata('role') == "1") : ?>
+                                                    <a href="<?= base_url("delete"); ?>/<?= $bio['uuid']; ?>" class="btn btn-danger tombol-hapus"><i class="icon-remove icon-white"></i> Hapus</a>
+                                                <?php endif; ?>
                                             </td>
                                         </tr>
                                     <?php endforeach ?>
